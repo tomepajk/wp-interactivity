@@ -61,4 +61,28 @@ $context = array(
             </button>
         </div>
     </div>
+
+
+    <!-- To Do List -->
+    <h2>Todo</h2>
+    <div class="todo">
+        <div class="todo__input-container">
+            <input type="text" class="todo__input"
+                   data-wp-on--keydown="actions.addTodoIfEnter"
+            >
+            <button class="todo__add" data-wp-on--click="actions.addTodo">
+                Add
+            </button>
+        </div>
+        <div class="todo__list">
+            <template data-wp-each="context.todos">
+                <div class="todo__item">
+                    <span class="todo__item-content" data-wp-text="context.item.text"></span>
+                    <button class="todo__remove"  data-wp-on--click="actions.removeTodo">
+                        Remove
+                    </button>
+                </div>
+            </template>
+        </div>
+    </div>
 </div>

@@ -10,3 +10,10 @@
 	background: #ffff001a;
 	padding: 1em;
 }
+
+
+.todo__item {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
