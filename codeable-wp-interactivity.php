@@ -25,6 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function create_block_codeable_wp_interactivity_block_init() {
-	register_block_type_from_metadata( __DIR__ . '/build' );
+	register_block_type_from_metadata( __DIR__ . '/build/counter' );
 }
 add_action( 'init', 'create_block_codeable_wp_interactivity_block_init' );
