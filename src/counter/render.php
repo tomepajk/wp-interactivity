@@ -12,12 +12,18 @@
 
 // Generate unique id for aria-controls.
 $unique_id = wp_unique_id( 'p-' );
+
+$context = array(
+	'isOpen'       => false,
+	'currentCount' => 0,
+	'todos'        => array(),
+);
 ?>
 
 <div
 	<?php echo get_block_wrapper_attributes(); ?>
 	data-wp-interactive="create-block"
-	<?php echo wp_interactivity_data_wp_context( array( 'isOpen' => false ) ); ?>
+	<?php echo wp_interactivity_data_wp_context( $context ); ?>
 	data-wp-watch="callbacks.logIsOpen"
 >
 	<button
@@ -36,4 +42,23 @@ $unique_id = wp_unique_id( 'p-' );
 			esc_html_e( 'Codeable Wp Interactivity - hello from an interactive block!', 'codeable-wp-interactivity' );
 		?>
 	</p>
+
+    <!-- Counter -->
+    <h2>Counter</h2>
+    <div class="counter">
+        <div class="counter__value" data-wp-text="context.currentCount">
+
+        </div>
+        <div class="counter__controls">
+            <button class="counter__increase" data-wp-on--click="actions.increaseCount">
+                Increase
+            </button>
+            <button class="counter__decrease" data-wp-on--click="actions.decreaseCount">
+                Decrease
+            </button>
+            <button class="counter__decrease" data-wp-on--click="actions.resetCount">
+                Reset
+            </button>
+        </div>
+    </div>
 </div>

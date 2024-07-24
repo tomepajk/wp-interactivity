@@ -9,6 +9,19 @@ store( 'create-block', {
 			const context = getContext();
 			context.isOpen = ! context.isOpen;
 		},
+		// Counter
+		increaseCount: () => {
+			const context = getContext();
+			context.currentCount++;
+		},
+		decreaseCount: () => {
+			const context = getContext();
+			context.currentCount--;
+		},
+		resetCount: () => {
+			const context = getContext();
+			context.currentCount = 0;
+		},
 	},
 	callbacks: {
 		logIsOpen: () => {
