@@ -102,6 +102,9 @@ const {
 
       // Clear the input field after adding the todo
       input.value = '';
+      setTimeout(() => {
+        actions.saveTodo();
+      }, 0);
     },
     addTodoIfEnter: event => {
       if (event.key === 'Enter') {
@@ -115,6 +118,17 @@ const {
       } = (0,_wordpress_interactivity__WEBPACK_IMPORTED_MODULE_0__.getElement)();
       const text = ref.parentElement.querySelector('.todo__item-content').textContent;
       state.todos = state.todos.filter(todo => todo.text !== text);
+      setTimeout(() => {
+        actions.saveTodo();
+      }, 0);
+    },
+    saveTodo: () => {
+      const todos = state.todos;
+      localStorage.setItem('todos', JSON.stringify(todos));
+    },
+    onInit() {
+      const todos = JSON.parse(localStorage.getItem('todos')) || [];
+      state.todos = todos;
     }
   },
   callbacks: {

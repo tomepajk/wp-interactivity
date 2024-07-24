@@ -25,6 +25,7 @@ $context = array(
 	data-wp-interactive="create-block"
 	<?php echo wp_interactivity_data_wp_context( $context ); ?>
 	data-wp-watch="callbacks.logIsOpen"
+    data-wp-init="actions.onInit"
 >
 	<button
 		data-wp-on--click="actions.toggle"
