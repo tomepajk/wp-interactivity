@@ -26,5 +26,17 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function create_block_codeable_wp_interactivity_block_init() {
 	register_block_type_from_metadata( __DIR__ . '/build/counter' );
+	register_block_type_from_metadata( __DIR__ . '/build/state-block' );
 }
 add_action( 'init', 'create_block_codeable_wp_interactivity_block_init' );
+
+
+add_action('generate_after_header', 'add_todo_counter_below_header');
+
+function add_todo_counter_below_header() {
+	?>
+	<div data-wp-interactive="create-block">
+		<h1> ToDO Count: <span data-wp-text="state.todoCount"></span></h1>
+	</div>
+	<?php
+}
